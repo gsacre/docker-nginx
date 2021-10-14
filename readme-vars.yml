@@ -40,7 +40,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "14.10.21:", desc: "Use standard nginx.conf from lsio alpine nginx base image." }
+  - { date: "14.10.21", desc: "Use standard nginx.conf from lsio alpine nginx base image." }
   - { date: "01.07.21:", desc: "Rebasing to alpine 3.14." }
   - { date: "24.06.21:", desc: "Update default nginx conf folder." }
   - { date: "12.04.21:", desc: "Add php7-gmp and php7-pecl-mailparse." }
