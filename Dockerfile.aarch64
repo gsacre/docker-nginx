@@ -15,7 +15,7 @@ RUN \
   apk add --no-cache --upgrade \
     curl && \
   if [ -z ${NGINX_VERSION+x} ]; then \
-    NGINX_VERSION=$(curl -sL "http://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz" | tar -xz -C /tmp \
+    NGINX_VERSION=$(curl -sL "http://dl-cdn.alpinelinux.org/alpine/v3.14/main/x86_64/APKINDEX.tar.gz" | tar -xz -C /tmp \
     && awk '/^P:nginx$/,/V:/' /tmp/APKINDEX | sed -n 2p | sed 's/^V://'); \
   fi && \
   apk add --no-cache --upgrade \
@@ -81,10 +81,7 @@ RUN \
     php7-xsl \
     php7-zip && \
   echo "**** configure nginx ****" && \
-  rm -f /etc/nginx/http.d/default.conf && \
-  sed -i \
-    's|include /config/nginx/site-confs/\*;|include /config/nginx/site-confs/\*;\n\t#Removed lua. Do not remove this comment|g' \
-    /defaults/nginx.conf
+  rm -f /etc/nginx/http.d/default.conf
 
 # add local files
 COPY root/ /
